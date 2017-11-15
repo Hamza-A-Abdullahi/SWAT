@@ -7,6 +7,7 @@ package OODCwk;
  * @author (your name) 
  * @version (a version number or a date)
  */
+// test
 public class Teamwork
 {
     private String[] details = new String[7];
