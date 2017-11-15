@@ -11,7 +11,8 @@ import java.util.*;
  * @version 20/10/2017
  */
 public class GameGUI 
-{
+{ 
+    
     private SWAT gp = new SpaceWars("Horatio");
     private JFrame myFrame = new JFrame("Game GUI");
     private Container contentPane = myFrame.getContentPane();
