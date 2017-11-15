@@ -89,7 +89,7 @@ public class GameUI
                      System.out.println("Write to file");
                      gp.saveGame("olenka.txt");
                  }
-                 else if (choice == 9) // Task 7.3 only
+                 else if (choice == 9) // Task 7.3 only || asdf
                  {
                      System.out.println("Restore from file");
                      Player gp2=null;
