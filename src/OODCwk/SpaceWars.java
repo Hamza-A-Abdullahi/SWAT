@@ -11,6 +11,7 @@ package OODCwk;
 public class SpaceWars  implements SWAT 
 {
     // fields
+    Player player;
     
 //**************** SWAT **************************  
     /** Constructor requires the name of the admiral
@@ -18,7 +19,8 @@ public class SpaceWars  implements SWAT
      */  
     public SpaceWars(String admiral)
     {
-    
+         player = new Player(admiral);
+        
     }
     
         
@@ -44,7 +46,7 @@ public class SpaceWars  implements SWAT
      */
     public boolean isDefeated()
     {
-        return false;
+      return false;
     }
     
     
@@ -53,7 +55,7 @@ public class SpaceWars  implements SWAT
      */
     public int getWarchest()
     {
-        return 0;
+        return player.getWarchest();
     }
     
     
@@ -62,7 +64,7 @@ public class SpaceWars  implements SWAT
      **/
     public String getASFleet()
     {   
-        return "";
+        return ""; // DO later
     }
     
     /** Returns details of an ASF force with the given reference code
@@ -70,6 +72,7 @@ public class SpaceWars  implements SWAT
      **/
     public String findForceInASF(String ref)
     {
+        
         return "";
     }
     
