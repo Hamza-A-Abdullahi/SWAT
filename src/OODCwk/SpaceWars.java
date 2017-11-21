@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class SpaceWars  implements SWAT 
 {
-    // fields
+    // UPDATED 21st Nov
     private String admiralName;
     private int warchest = 1000;
     boolean isDefeated = false;
