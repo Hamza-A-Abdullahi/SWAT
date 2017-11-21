@@ -1,5 +1,7 @@
 package OODCwk;
 
+import java.util.ArrayList;
+
 /**
  * This class implements the behaviour expected from a SWAT
  * system as required for 6COM1037 - Nov 2017
@@ -13,6 +15,9 @@ public class SpaceWars  implements SWAT
     // fields
     private String admiralName;
     private int warchest = 1000;
+    boolean isDefeated = false;
+    private static ArrayList<ASF_Force> fightingFleet = new ArrayList();
+
     
 //**************** SWAT **************************  
     /** Constructor requires the name of the admiral
@@ -47,6 +52,7 @@ public class SpaceWars  implements SWAT
      */
     public boolean isDefeated()
     {
+        //if(warchest <=0 && )
       return false;
     }
     

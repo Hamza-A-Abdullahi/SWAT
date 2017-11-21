@@ -20,7 +20,6 @@ public abstract class ASF_Force {
     private ForceState status;  //docked, active or destroyed 
     protected int activationFee;
     protected int battleStrength;
-    private ArrayList<ASF_Force> fightingFleet = new ArrayList();
 
 
     public String getFullname() {
@@ -51,43 +50,46 @@ public abstract class ASF_Force {
         this.activationFee = activationFee;
         this.battleStrength = battleStrength;
     }
-    public String findForce(String ref) {
-        
-           String result = "";
-           for(ASF_Force force: fightingFleet) {
 
-
-               if(force.getReference() == ref) {
-                   result = force.toString();  // CHANGE FOR LATER 
-               }
-           }
-           return result;
-           
-       }
     
-       public void getFightingFleet() {
-           for(ASF_Force force: fightingFleet) {
-               System.out.println("Full name: " + force.getFullname());
-               System.out.println("Reference: " + force.getReference());
-               System.out.println("Status: " + force.getStatus());
-               System.out.println("Activation Fee: " + force.getActivationFee());
-               System.out.println("Battle Strength: " + force.getBattleStrength());
-               System.out.println();
-
-           }
-       }
-       
+    // REDUNDANT
+//       public void getFightingFleet() {
+//           for(ASF_Force force: fightingFleet) {
+//               System.out.println("Full name: " + force.getFullname());
+//               System.out.println("Reference: " + force.getReference());
+//               System.out.println("Status: " + force.getStatus());
+//               System.out.println("Activation Fee: " + force.getActivationFee());
+//               System.out.println("Battle Strength: " + force.getBattleStrength());
+//               System.out.println();
+//
+//           }
+//       }
+//    
+//    public String findForce(String ref) {
+//        
+//           String result = "";
+//           
+//           for(ASF_Force force: fightingFleet) {
+//
+//
+//               if(force.getReference().equals(ref)) {
+//                   result = force.toString();  // CHANGE FOR LATER 
+//               }
+//           }
+//           return result;
+//           
+//       }
+//       
        public String toString() {
                String result = "";
-               for(ASF_Force force: fightingFleet) {
-                   result = result + "\n" + " Full name: " + force.getFullname();
-                   result = result + "\n" + " Reference: " + force.getReference();
-                   result = result + "\n" + "Status: " + force.getStatus();
-                   result = result + "\n" + "Activation Fee: " + force.getActivationFee();
-                   result = result + "\n" + "Battle Strength: " + force.getBattleStrength();
+                   result = result + "\n" + " Full name: " + this.getFullname();
+                   result = result + "\n" + " Reference: " + this.getReference();
+                   result = result + "\n" + "Status: " + this.getStatus();
+                   result = result + "\n" + "Activation Fee: " + this.getActivationFee();
+                   result = result + "\n" + "Battle Strength: " + this.getBattleStrength();
            
-       }
-               return result;           
+     
+                   return result;           
        }
   
 }
@@ -100,4 +102,4 @@ public abstract class ASF_Force {
     
     
     
-}
+
