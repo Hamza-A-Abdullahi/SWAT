@@ -11,7 +11,8 @@ package OODCwk;
 public class SpaceWars  implements SWAT 
 {
     // fields
-    Player player;
+    private String admiralName;
+    private int warchest = 1000;
     
 //**************** SWAT **************************  
     /** Constructor requires the name of the admiral
@@ -19,7 +20,7 @@ public class SpaceWars  implements SWAT
      */  
     public SpaceWars(String admiral)
     {
-         player = new Player(admiral);
+         admiralName = admiral;
         
     }
     
@@ -55,7 +56,7 @@ public class SpaceWars  implements SWAT
      */
     public int getWarchest()
     {
-        return player.getWarchest();
+        return warchest;
     }
     
     
