@@ -16,7 +16,7 @@ public class SpaceWars  implements SWAT
     private String admiralName;
     private int warchest = 1000;
     boolean isDefeated = false;
-    private static ArrayList<ASF_Force> fightingFleet = new ArrayList();
+    private static ArrayList<ASF_Force> fightingFleet = new ArrayList(); // Fighting Fleet
 
     
 //**************** SWAT **************************  
@@ -25,11 +25,11 @@ public class SpaceWars  implements SWAT
      */  
     public SpaceWars(String admiral)
     {
-         admiralName = admiral;
+         admiralName = admiral; 
         
     }
     
-        
+    
     /**Returns a String representation of the state of the game,
      * including the name of the admiral, state of the resources,
      * whether defeated or not, and the forces currently in the 

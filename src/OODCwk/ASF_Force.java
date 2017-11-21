@@ -50,9 +50,10 @@ public abstract class ASF_Force {
         this.activationFee = activationFee;
         this.battleStrength = battleStrength;
     }
+    
 
     
-    // REDUNDANT
+    // I am keeping this just in case we need it, later on this will be removed.
 //       public void getFightingFleet() {
 //           for(ASF_Force force: fightingFleet) {
 //               System.out.println("Full name: " + force.getFullname());
