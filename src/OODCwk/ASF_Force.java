@@ -8,7 +8,7 @@
 // Hamza test
 package OODCwk;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -20,7 +20,25 @@ public abstract class ASF_Force {
     private ForceState status;  //docked, active or destroyed 
     protected int activationFee;
     protected int battleStrength;
-
+    
+    public static HashMap<String, ASF_Force> allForces = new HashMap();
+   
+    
+            
+            
+    public static boolean checkRecall(){
+        boolean result = false;
+        
+        for(ASF_Force force: allForces.values()){
+            
+            if (force.getStatus()== ForceState.ACTIVE){
+                result = true;
+                break;
+             }
+        }
+        
+        return result;
+ }
 
     public String getFullname() {
         return fullname;
@@ -43,12 +61,14 @@ public abstract class ASF_Force {
     }
     
 
-    public ASF_Force(String fullname, String reference, ForceState status, int activationFee, int battleStrength) {
+    public ASF_Force(String fullname, String reference, int activationFee, int battleStrength) {
         this.fullname = fullname;
         this.reference = reference;
-        this.status = status;
+        this.status = ForceState.DOCKED;
         this.activationFee = activationFee;
         this.battleStrength = battleStrength;
+        
+        allForces.put(this.reference, this);
     }
     
 
@@ -83,11 +103,11 @@ public abstract class ASF_Force {
 //       
        public String toString() {
                String result = "";
-                   result = result + "\n" + " Full name: " + this.getFullname();
-                   result = result + "\n" + " Reference: " + this.getReference();
-                   result = result + "\n" + "Status: " + this.getStatus();
-                   result = result + "\n" + "Activation Fee: " + this.getActivationFee();
-                   result = result + "\n" + "Battle Strength: " + this.getBattleStrength();
+                   result = result + " Full name: " + this.getFullname();
+                   result = result + " Reference: " + this.getReference();
+                   result = result +  " Status: " + this.getStatus();
+                   result = result +  " Activation Fee: " + this.getActivationFee();
+                   result = result +  " Battle Strength: " + this.getBattleStrength();
            
      
                    return result;           

@@ -91,10 +91,9 @@ public class GameUI
                  }
                  else if (choice == 9) // Task 7.3 only
                  {
-                     System.out.println("Restore from file");
-                     Player gp2=null;
-                     gp2.restoreGame("olenka.txt");
-                     System.out.println(gp2.toString());               
+                    System.out.println("Restore from file");                    
+                    gp = gp.restoreGame("olenka.txt");                     
+                    System.out.println(gp.toString());               
                  }
             }     
         }

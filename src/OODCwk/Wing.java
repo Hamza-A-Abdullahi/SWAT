@@ -12,17 +12,18 @@ package OODCwk;
 public class Wing extends ASF_Force {
     int strikers;
     
-    public Wing(String fullname, String reference, ForceState status, int activationFee, int battleStrength, int no_strikers) {
-        super(fullname, reference, status, activationFee, battleStrength);
-        
+    public Wing(String fullname, String reference, int no_strikers) {
+        super(fullname, reference, 200, no_strikers*20);
+
         this.strikers = no_strikers;
+   
         
-        this.battleStrength = strikers*20;
-        
-        this.activationFee= 200;
+
+
     }
    
     public String toString() {
-        return " Number of Strikers: " + this.strikers;
+        
+        return super.toString() + " Number of Strikers: " + this.strikers + "\n";
     }
 }

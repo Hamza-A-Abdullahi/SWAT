@@ -13,11 +13,10 @@ public class WarBird extends ASF_Force {
     
     private boolean cloaking_device;
 
-    public WarBird(String fullname, String reference, ForceState status, int activationFee, int battleStrength, boolean cloaking_device) {
+    public WarBird(String fullname, String reference, int battleStrength, boolean cloaking_device) {
         
-        super(fullname, reference, status, activationFee, battleStrength);
+        super(fullname,reference,0,battleStrength);
         this.activationFee = 300;
-        
         
         
         if(cloaking_device) {
@@ -34,7 +33,7 @@ public class WarBird extends ASF_Force {
             result = result + " Cloaking Device: Enabled"; 
         }
         
-        return result;
+        return super.toString() + result + "\n";
         
     }
     

@@ -15,8 +15,8 @@ public class Starship extends ASF_Force {
     
     
     
-    public Starship(String fullname, String reference, ForceState status, int activationFee, int battleStrength, int no_laserCannons,int no_photontorpedo) {
-        super(fullname, reference, status, activationFee, battleStrength);
+    public Starship(String fullname, String reference, int no_laserCannons,int no_photontorpedo) {
+        super(fullname, reference, 0, 0);
         
         if(no_laserCannons > 0) {
            this.activationFee = no_laserCannons * 30;
@@ -32,7 +32,7 @@ public class Starship extends ASF_Force {
     }
     
     public String toString() {
-        return "Number of Photon Torpedos " + this.photontorpedo + " \n Number of Laser Cannons: " + this.laserCannons;
+        return super.toString() + " Number of Photon Torpedos " + this.photontorpedo + " Number of Laser Cannons: " + this.laserCannons + "\n";
     }
     
 }

@@ -1,6 +1,5 @@
 package OODCwk;
 
-import java.util.ArrayList;
 
 /**
  * This class implements the behaviour expected from a SWAT
@@ -16,7 +15,6 @@ public class SpaceWars  implements SWAT
     private String admiralName;
     private int warchest = 1000;
     boolean isDefeated = false;
-    private static ArrayList<ASF_Force> fightingFleet = new ArrayList(); // Fighting Fleet
 
     
 //**************** SWAT **************************  
@@ -41,6 +39,7 @@ public class SpaceWars  implements SWAT
      **/
     public String toString()
     {
+      
         return "";
     }
     
@@ -52,8 +51,15 @@ public class SpaceWars  implements SWAT
      */
     public boolean isDefeated()
     {
-        //if(warchest <=0 && )
-      return false;
+        boolean result = false;
+        
+        if (warchest<=0 && ASF_Force.checkRecall() == false){
+            result = true;
+        }
+        
+        return result;
+
+  
     }
     
     
@@ -71,7 +77,16 @@ public class SpaceWars  implements SWAT
      **/
     public String getASFleet()
     {   
-        return ""; // DO later
+        String result = "";
+
+        setupForces();
+        
+    
+        for (ASF_Force forcemember: ASF_Force.allForces.values()){
+          result = result + forcemember.toString();
+        }
+        
+        return result; 
     }
     
     /** Returns details of an ASF force with the given reference code
@@ -79,16 +94,32 @@ public class SpaceWars  implements SWAT
      **/
     public String findForceInASF(String ref)
     {
+        ASF_Force forceMem = ASF_Force.allForces.get(ref);
         
-        return "";
+        String result = "";
+        
+        if(forceMem != null) {
+            result = forceMem.toString();
+        }
+        
+        return result;
     }
     
     /** Returns details of any force with the given reference code
      * @return details of any force with the given reference code
      **/
     public String getForce(String ref)
-    {     
-        return "";
+    {  
+        
+       // SAME AS ABOVE THIS METHOD GIVEN IN UNCLEAR
+       ASF_Force forceMem = ASF_Force.allForces.get(ref);
+        String result = "";
+        
+        if(forceMem != null) {
+            result = forceMem.toString();
+        }
+        
+        return result;
     }     
  
     // ***************** Fighting Fleet Forces ************************   
@@ -191,6 +222,23 @@ public class SpaceWars  implements SWAT
     //*******************************************************************************
     private void setupForces()
     {
+        Wing IW1 = new Wing("Dragons", "IW1",10);
+        
+        Starship SS2 = new Starship("Enterprise", "SS2", 10, 20);
+        WarBird WB3 = new WarBird("Droop", "WB3", 100, false);
+        
+        Wing IW4 = new Wing("Dragons", "IW4", 20);
+        
+        
+        WarBird WB5 = new WarBird("Hang", "WB5", 300, true);
+        Starship SS6 = new Starship("Voyager", "SS6", 15, 10);
+        Starship SS7 = new Starship("Explorer", "SS7", 4, 5);
+        WarBird WB9 = new WarBird("Hover", "WB9", 400, false);
+        
+        Wing IW10 = new Wing("Flyers", "IW10",5);
+        
+        
+
         
     }
     
