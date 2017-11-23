@@ -32,7 +32,7 @@ public class Starship extends ASF_Force {
     }
     
     public String toString() {
-        return super.toString() + " Number of Photon Torpedos " + this.photontorpedo + " Number of Laser Cannons: " + this.laserCannons + "\n";
+        return super.toString() + " Number of Photon Torpedos:" + this.photontorpedo + " Number of Laser Cannons:" + this.laserCannons + "\n";
     }
     
 }

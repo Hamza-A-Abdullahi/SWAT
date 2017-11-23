@@ -30,7 +30,7 @@ public class WarBird extends ASF_Force {
     public String toString() {
         String result = "";
         if(this.cloaking_device) {
-            result = result + " Cloaking Device: Enabled"; 
+            result = result + " Cloaking Device:Enabled"; 
         }
         
         return super.toString() + result + "\n";

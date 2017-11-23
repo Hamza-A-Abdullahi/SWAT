@@ -24,6 +24,6 @@ public class Wing extends ASF_Force {
    
     public String toString() {
         
-        return super.toString() + " Number of Strikers: " + this.strikers + "\n";
+        return super.toString() + " Number of Strikers:" + this.strikers + "\n";
     }
 }
