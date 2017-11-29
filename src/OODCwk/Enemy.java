@@ -5,10 +5,7 @@
  */
 package OODCwk;
 
-/**
- *
- * @author Wayne
- */
+
 public class Enemy {
     private String enemyName;
     private int strength;
