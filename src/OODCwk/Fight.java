@@ -8,10 +8,7 @@ package OODCwk;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author Wayne
- */
+
 public class Fight {
 
     private static int fightNo = 0;
