@@ -7,34 +7,50 @@ package OODCwk;
 
 /**
  *
- * @author wr15aab
+ * @author Wayne
  */
 public class WarBird extends ASF_Force {
-    
-    private boolean cloaking_device;
-
-    public WarBird(String fullname, String reference, int battleStrength, boolean cloaking_device) {
+    boolean cloakingDevice;
+    public WarBird(String fullname, String reference, int battleStrength, boolean cloakingDev) {
+        super(fullname, reference, 0, battleStrength);
         
-        super(fullname,reference,0,battleStrength);
-        this.activationFee = 300;
-        
-        
-        if(cloaking_device) {
-            this.activationFee = 400;
+        if(cloakingDev){
+            this.setActivationFee(300);
         }
+        else{
+            this.setActivationFee(400);
+        }
+        this.cloakingDevice = cloakingDev;
         
-        this.cloaking_device = cloaking_device;
-
     }
-    
-    public String toString() {
-        String result = "";
-        if(this.cloaking_device) {
-            result = result + " Cloaking Device:Enabled"; 
+
+    @Override
+    public String getDetails() {
+        String result;
+        
+        if(cloakingDevice) {
+            result = "Cloaking Device: Enabled";
+        } else {
+            result = "Cloaking Device: Not Found";
+        }
+        return result;
+    }
+
+    public boolean gameRule(Fight fight) {
+        boolean result = false;
+        switch(fight.getFightType()) {
+            case AMBUSH:
+                if(cloakingDevice) {
+                    result = true;
+                }
+            case BATTLE:
+                result =  true;
+            default:
+                result = false;
+                
         }
         
-        return super.toString() + result + "\n";
-        
+        return result;
     }
     
 }

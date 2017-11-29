@@ -7,35 +7,33 @@ package OODCwk;
 
 /**
  *
- * @author hamzaabdullahi
+ * @author Wayne
  */
 public class Enemy {
-    
     private String enemyName;
-    private int enemyStrength;
+    private int strength;
 
-    public Enemy(String enemyName, int enemyStrength) {
+    public Enemy(String enemyName, int strength) {
         this.enemyName = enemyName;
-        this.enemyStrength = enemyStrength;
-        
-    }
-
-    public void setEnemyName(String enemyName) {
-        this.enemyName = enemyName;
-    }
-
-    public void setEnemyStrength(int enemyStrength) {
-        this.enemyStrength = enemyStrength;
+        this.strength = strength;
     }
 
     public String getEnemyName() {
         return enemyName;
     }
 
-    public int getEnemyStrength() {
-        return enemyStrength;
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setEnemyName(String enemyName) {
+        this.enemyName = enemyName;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
     
-           
+    
     
 }

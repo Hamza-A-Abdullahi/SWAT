@@ -8,14 +8,10 @@ import java.io.*;
  */
 public class GameUI
 {
-     
     private static BufferedReader myIn = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args)
     {
-     
-        
-        
         int choice;
         String admiralName;
         int result = -1;
@@ -84,17 +80,18 @@ public class GameUI
                 {
                     System.out.println(gp.toString());
                 }
-                 else if (choice == 8) // Task 7.3 only
-                 {
-                     System.out.println("Write to file");
-                     gp.saveGame("olenka.txt");
-                 }
-                 else if (choice == 9) // Task 7.3 only
-                 {
-                    System.out.println("Restore from file");                    
-                    gp = gp.restoreGame("olenka.txt");                     
-                    System.out.println(gp.toString());               
-                 }
+//                 else if (choice == 8) // Task 7.3 only
+//                 {
+//                     System.out.println("Write to file");
+//                     gp.saveGame("olenka.txt");
+//                 }
+//                 else if (choice == 9) // Task 7.3 only
+//                 {
+//                     System.out.println("Restore from file");
+//                     Player gp2=null;
+//                     gp2.restoreGame("olenka.txt");
+//                     System.out.println(gp2.toString());               
+//                 }
             }     
         }
         catch (IOException e) {System.out.println (e);}   
@@ -113,8 +110,8 @@ public class GameUI
         System.out.println("6. Recall a force");
         System.out.println("7. View the state of the game");
         //Task 7 only
-        System.out.println("8. Save this game");
-        System.out.println("9. Restore a game");
+        //System.out.println("8. Save this game");
+        //System.out.println("9. Restore a game");
        
         
         while (choice < 0 || choice  > 9)

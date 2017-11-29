@@ -7,32 +7,38 @@ package OODCwk;
 
 /**
  *
- * @author wr15aab
+ * @author Wayne
  */
 public class Starship extends ASF_Force {
     int laserCannons;
-    int photontorpedo;
+    int photonTorpedos;
     
-    
-    
-    public Starship(String fullname, String reference, int no_laserCannons,int no_photontorpedo) {
+    public Starship(String fullname, String reference, int lasers, int photon) {
         super(fullname, reference, 0, 0);
-        
-        if(no_laserCannons > 0) {
-           this.activationFee = no_laserCannons * 30;
+        this.setActivationFee(30*lasers);
+        this.setBattleStrength(5*photon + 10*lasers);
+        this.laserCannons = lasers;
+        this.photonTorpedos = photon;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Laser Cannons: " + laserCannons + " Photon Torpedos: " + photonTorpedos;
+    }
+
+    @Override
+    public boolean gameRule(Fight fight) {
+        boolean result = false;
+        switch(fight.getFightType()) {
+            case SKIRMISH:
+                result = true;
+            case BATTLE:
+                result = true;
+            default:
+                result = false;
+                
         }
         
-       this.photontorpedo = no_photontorpedo;
-       this.laserCannons = no_laserCannons;
-       
-       this.battleStrength += no_photontorpedo * 5;
-       this.battleStrength += no_laserCannons *10;
-        
-        
+        return result;
     }
-    
-    public String toString() {
-        return super.toString() + " Number of Photon Torpedos:" + this.photontorpedo + " Number of Laser Cannons:" + this.laserCannons + "\n";
-    }
-    
 }
