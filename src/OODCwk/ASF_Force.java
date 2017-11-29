@@ -8,10 +8,7 @@ package OODCwk;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author wrmos
- */
+
 public abstract class ASF_Force {
     private String fullname;
     private String reference;
