@@ -5,10 +5,7 @@
  */
 package OODCwk;
 
-/**
- *
- * @author wrmos
- */
+
 public class Wing extends ASF_Force {
     private int strikers;
     
