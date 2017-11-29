@@ -24,14 +24,9 @@ public class Fight {
     
     private static HashMap<Integer, Fight> allFights = new HashMap();
     
-    public static Fight getFight(int num) throws Exception {
+    public static Fight getFight(int num) {
         Fight result = allFights.get(num);
-        
-        if(result == null){
-            throw new Exception("Invalid Reference: The fight does not exist with the given reference.");
-        } else {
-            return result;
-        }
+        return result;
     } 
     public Fight(FightType fightType, Enemy enemy, int losses, int gains ) {
         this.fightType = fightType;

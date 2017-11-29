@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -106,15 +105,17 @@ public class SpaceWars  implements SWAT
     public String findForceInASF(String ref)
     {
         String result = "";
-        try {
-            ASF_Force force = ASF_Force.getForce(ref);
+        ASF_Force force = ASF_Force.getForce(ref);
+
+        if(force != null) {
             
             if(force.getStatus() == ForceState.ACTIVE){
                  result = force.toString();
             } else {
                 result = "This unit is not part of the ASF fleet.";
             }
-        } catch (Exception ex) {
+        }
+         else {
             result = "Invalid reference or force does not exist.";
         }
         
@@ -127,11 +128,12 @@ public class SpaceWars  implements SWAT
     public String getForce(String ref)
     {     
         String result = "";
+        ASF_Force force = ASF_Force.getForce(ref);
+
         
-        try {
-            ASF_Force force = ASF_Force.getForce(ref);
+        if(force != null) {
             result = force.toString();
-        } catch (Exception ex) {
+        } else {
             result = "Invalid reference or force does not exist.";
         }
         return result;
@@ -148,9 +150,9 @@ public class SpaceWars  implements SWAT
     public int activateForce(String ref)
     {
         int result = 0;
-        
-        try {
-            ASF_Force force = ASF_Force.getForce(ref);
+        ASF_Force force = ASF_Force.getForce(ref);
+       
+        if(force != null) {
             switch(force.getStatus()) {
                 case DOCKED:
                     if(warchest >= force.getActivationFee()) {
@@ -165,7 +167,7 @@ public class SpaceWars  implements SWAT
                 default:
                     result = 1;
             }
-        } catch (Exception ex) {
+        } else {
             result = 3;
         }
         
@@ -181,15 +183,13 @@ public class SpaceWars  implements SWAT
     public boolean isInFightingFleet(String ref)
     {
         boolean result = false;
-        try {
-            ASF_Force force = ASF_Force.getForce(ref);
+        ASF_Force force = ASF_Force.getForce(ref);
+
+        if(force != null) {
             
             if(force.getStatus() == ForceState.ACTIVE) {
                 result = true;
             }
-        } catch (Exception ex) {
-            // do nothing
-            // the result will be still false so this will be kept empty
         }
         
         return result;
@@ -203,15 +203,14 @@ public class SpaceWars  implements SWAT
      **/
     public void recallForce(String ref)
     {
-        try {
-            ASF_Force force = ASF_Force.getForce(ref);
+        ASF_Force force = ASF_Force.getForce(ref);
+        
+        if(force != null) {
             
             if(force.getStatus() == ForceState.ACTIVE) {
                 warchest = warchest - (force.getActivationFee() / 2);
                 force.setStatus(ForceState.DOCKED);
             }
-        } catch (Exception ex) {
-            // Do nothing since it does not mention what to do if the reference given is invalid.
         }
         
     }    
@@ -239,11 +238,11 @@ public class SpaceWars  implements SWAT
      **/
      public boolean isFight(int num)
      {
-        
-        try {
-            Fight result = Fight.getFight(num);
+        Fight result = Fight.getFight(num);
+       
+        if(result != null) {
             return true;
-        } catch (Exception ex) {
+        } else {
             return false;
         }
      }
@@ -265,8 +264,9 @@ public class SpaceWars  implements SWAT
     public int fight(int fightNo)
     {
         int result = 0;
-        try {
-            Fight fight = Fight.getFight(fightNo);
+        Fight fight = Fight.getFight(fightNo);
+
+        if(fight != null) {
             
             
             switch(fight.beginFight()) {
@@ -288,7 +288,7 @@ public class SpaceWars  implements SWAT
            }
         }
             
-        } catch (Exception ex) {
+        } else {
             result = -1;
         }
         
@@ -305,10 +305,11 @@ public class SpaceWars  implements SWAT
     public String getFight(int num)
     {
         String result = "";
-        try {
-            Fight fight = Fight.getFight(num);
+        Fight fight = Fight.getFight(num);
+
+        if(fight != null) {
             result = fight.toString();
-        } catch (Exception ex) {
+        } else {
             result = "Invalid fight number";
         }
         
@@ -395,7 +396,7 @@ public class SpaceWars  implements SWAT
      */
     public SpaceWars restoreGame(String fname)
     {
-        SpaceWars result;
+        SpaceWars result = null;
         try {
             FileInputStream fis = new FileInputStream(fname);
             ObjectInputStream ois = new ObjectInputStream(fis);

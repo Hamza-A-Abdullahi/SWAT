@@ -39,14 +39,10 @@ public abstract class ASF_Force {
     
     
     
-    public static ASF_Force getForce(String ref) throws Exception {
+    public static ASF_Force getForce(String ref)  {
         ASF_Force result = allForces.get(ref);
         
-        if(result == null){
-            throw new Exception("Invalid Reference: The force does not exist with the given reference.");
-        } else {
-            return result;
-        }
+        return result;
     } 
     
     
