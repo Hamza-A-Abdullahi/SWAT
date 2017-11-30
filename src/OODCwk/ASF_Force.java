@@ -16,6 +16,12 @@ public abstract class ASF_Force {
     private int activationFee;
     private int battleStrength;
 
+    /** allForces will store all ASF force units that are in the game.
+     *  The key is the ASF force unit's Reference given as a string which should uniquely identify each unit.
+     *  The value will store the actual object of the ASF Force unit.
+     */
+    private static HashMap<String, ASF_Force> allForces = new HashMap();
+    
     /**
      *
      * @param fullname
@@ -29,13 +35,10 @@ public abstract class ASF_Force {
         this.activationFee = activationFee;
         this.battleStrength = battleStrength;
         this.status = ForceState.DOCKED;
+        allForces.put(reference, this);
     }
     
-    /** allForces will store all ASF force units that are in the game.
-     *  The key is the ASF force unit's Reference given as a string which should uniquely identify each unit.
-     *  The value will store the actual object of the ASF Force unit.
-     */
-    private static HashMap<String, ASF_Force> allForces = new HashMap();
+
     
     
     
@@ -47,13 +50,12 @@ public abstract class ASF_Force {
     
     
     public static ArrayList<ASF_Force> getallActive() {
-        ArrayList<ASF_Force> resultForces = null;
-        for(ASF_Force force: allForces.values()) {
-            if(force.getStatus() == ForceState.ACTIVE) {
-                resultForces.add(force);
-            }
+        ArrayList<ASF_Force> resultForces = new ArrayList();
+            for(ASF_Force force: allForces.values()) {
+                if(force.getStatus() == ForceState.ACTIVE) {
+                    resultForces.add(force);
+                }
         }
-        
         return resultForces;
     }
     /** This is a getter method to retrieve the full name of an ASF Force unit.
@@ -154,7 +156,7 @@ public abstract class ASF_Force {
                    result = result +  "Status: " + this.getStatus() + "\n";
                    result = result +  "Activation Fee: " + this.getActivationFee() + "\n";
                    result = result +  "Battle Strength: " + this.getBattleStrength() +"\n";
-                   result = result +  "Other Details: { " + getDetails() + " }" + "\n";
+                   result = result +  "Other Details: { " + getDetails() + " }" + "\n \n";
            
                    return result;           
     }

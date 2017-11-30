@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -67,10 +68,11 @@ public class SpaceWars  implements SWAT
         
         boolean hasForces = false;
         
-        
-        for(ASF_Force force: ASF_Force.getallActive()) {
-                hasForces = true;
-        }
+        ArrayList<ASF_Force> getallForces = ASF_Force.getallActive();
+        if(!getallForces.isEmpty())
+            for(ASF_Force force: getallForces) {
+                    hasForces = true;
+            }
         if(warchest <=0 && !hasForces) {
             result = true;
         }
@@ -93,9 +95,10 @@ public class SpaceWars  implements SWAT
     public String getASFleet()
     {   
         String result = "";
-        for(ASF_Force force: ASF_Force.getAllForces().values()) {
-            result = result + force.toString();
-        }
+        if(!ASF_Force.getAllForces().isEmpty())
+            for(ASF_Force force: ASF_Force.getAllForces().values()) {
+                result = result + force.toString();
+            }
         return result;
     }
     
@@ -208,7 +211,7 @@ public class SpaceWars  implements SWAT
         if(force != null) {
             
             if(force.getStatus() == ForceState.ACTIVE) {
-                warchest = warchest - (force.getActivationFee() / 2);
+                warchest = warchest + (force.getActivationFee() / 2);
                 force.setStatus(ForceState.DOCKED);
             }
         }
@@ -223,10 +226,13 @@ public class SpaceWars  implements SWAT
     public String getFightingFleet()
     {
         String result = "";
-        for(ASF_Force force: ASF_Force.getallActive()) {
-            result = result + force.toString();
-        }
+        ArrayList<ASF_Force> allActive = ASF_Force.getallActive();
         
+        if(!allActive.isEmpty()) {
+            for(ASF_Force force: allActive ) {
+                result = result + force.toString();
+            }
+        }
         return result;
     }
     
@@ -272,11 +278,19 @@ public class SpaceWars  implements SWAT
             switch(fight.beginFight()) {
                 case WON:
                     result = 0;
+                    System.out.println("Fight has begun " + fight.getFightType());
+                    break;
+                    
                 case FORCE_LOST:
                     result = 1;
+                    System.out.println("Fight has begun " + fight.getFightType());
+                    break;
+
                 case STRENGTH_LOST:
                     result = 2;
                     fight.DestroyForce();
+                    System.out.println("Fight has begun " + fight.getFightType() );
+                    break;
             }
         
         // common rule

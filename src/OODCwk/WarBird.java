@@ -7,7 +7,7 @@ package OODCwk;
 
 /**
  *
- * @author Wayne
+ * @author 
  */
 public class WarBird extends ASF_Force {
     boolean cloakingDevice;
@@ -50,10 +50,14 @@ public class WarBird extends ASF_Force {
             case AMBUSH:
                 if(cloakingDevice) {
                     result = true;
+                } else {
+                    result = false;
                 }
+            break;
             case BATTLE:
                 result =  true;
-            default:
+                break;
+            case SKIRMISH:
                 result = false;
                 
         }

@@ -37,9 +37,11 @@ public class Wing extends ASF_Force {
         switch(fight.getFightType()) {
             case SKIRMISH:
                 result = true;
+                break;
             case AMBUSH:
                 result = true;
-            default:
+                break;
+            case BATTLE:
                 result = false;
                 
         }

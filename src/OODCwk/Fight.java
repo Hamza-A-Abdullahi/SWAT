@@ -177,9 +177,10 @@ public class Fight {
      *
      */
     public void DestroyForce() {
-      for(ASF_Force force: usedForces){
-          force.setStatus(ForceState.DESTROYED);
-      }   
+        if(!usedForces.isEmpty())
+            for(ASF_Force force: usedForces){
+                force.setStatus(ForceState.DESTROYED);
+        } 
     }
 
     /**
@@ -195,6 +196,7 @@ public class Fight {
      * @return
      */
     public FightResult beginFight() {
+        
         findSuitableforce();
         int totalStrength = this.forceTotalStrength;
         
