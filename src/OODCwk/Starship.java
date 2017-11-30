@@ -36,13 +36,18 @@ public class Starship extends ASF_Force {
     @Override
     public boolean gameRule(Fight fight) {
         boolean result = false;
+        
+
         switch(fight.getFightType()) {
             case SKIRMISH:
                 result = true;
+                break;
             case BATTLE:
                 result = true;
-            default:
+                break;
+            case AMBUSH:
                 result = false;
+                break;
                 
         }
         

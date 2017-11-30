@@ -23,11 +23,13 @@ public class WarBird extends ASF_Force {
         super(fullname, reference, 0, battleStrength);
         
         if(cloakingDev){
-            this.setActivationFee(300);
-        }
-        else{
             this.setActivationFee(400);
         }
+        else{
+            this.setActivationFee(300);
+        }
+        
+        
         this.cloakingDevice = cloakingDev;
         
     }

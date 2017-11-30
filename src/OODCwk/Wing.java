@@ -43,6 +43,7 @@ public class Wing extends ASF_Force {
                 break;
             case BATTLE:
                 result = false;
+                break;
                 
         }
         

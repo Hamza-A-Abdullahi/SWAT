@@ -66,14 +66,16 @@ public class SpaceWars  implements SWAT
     {
         boolean result = false;
         
-        boolean hasForces = false;
+        boolean activeForces = false;
         
         ArrayList<ASF_Force> getallForces = ASF_Force.getallActive();
-        if(!getallForces.isEmpty())
+        if(!getallForces.isEmpty()) {
             for(ASF_Force force: getallForces) {
-                    hasForces = true;
+                    activeForces = true;
             }
-        if(warchest <=0 && !hasForces) {
+        }
+        
+        if(warchest <=0 && !activeForces) {
             result = true;
         }
         return result;
@@ -278,18 +280,16 @@ public class SpaceWars  implements SWAT
             switch(fight.beginFight()) {
                 case WON:
                     result = 0;
-                    System.out.println("Fight has begun " + fight.getFightType());
+                    warchest = warchest + fight.getGains();
                     break;
                     
                 case FORCE_LOST:
                     result = 1;
-                    System.out.println("Fight has begun " + fight.getFightType());
                     break;
 
                 case STRENGTH_LOST:
                     result = 2;
                     fight.DestroyForce();
-                    System.out.println("Fight has begun " + fight.getFightType() );
                     break;
             }
         
@@ -369,7 +369,7 @@ public class SpaceWars  implements SWAT
     {
         Fight F1 = new Fight(FightType.BATTLE,new Enemy("Borg",200),300, 100);
         Fight F2 = new Fight(FightType.SKIRMISH,new Enemy("Kardassians",700),200, 120);
-        Fight F3 = new Fight(FightType.AMBUSH,new Enemy("Ferengi",100),400,160);
+        Fight F3 = new Fight(FightType.AMBUSH,new Enemy("Ferengi",100),400,150);
         Fight F4 = new Fight(FightType.BATTLE,new Enemy("Ewoks",600),600, 200);
         Fight F5 = new Fight(FightType.AMBUSH,new Enemy("Borg",500),400, 90);
         Fight F6 = new Fight(FightType.SKIRMISH,new Enemy("Groaners",150),100, 100);
