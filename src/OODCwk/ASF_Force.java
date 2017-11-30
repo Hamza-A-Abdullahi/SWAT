@@ -98,7 +98,7 @@ public abstract class ASF_Force {
     }
 
     /** This is a getter method to retrieve the data structure used to store all ASF forces.
-     *  The data structure used is a Hash map where the key is Reference (string) and the actual ASF unit object (ASF_Force)
+     *  The data structure used is a HashMap where the key is Reference (string) and the actual ASF unit object (ASF_Force)
      * @return HashMap<String, ASF_Force> of all units.
      */
     public static HashMap<String, ASF_Force> getAllForces() {

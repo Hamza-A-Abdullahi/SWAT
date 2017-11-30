@@ -5,11 +5,21 @@
  */
 package OODCwk;
 
-
+/**
+ *
+ * @author Wayne
+ */
 public class Starship extends ASF_Force {
     int laserCannons;
     int photonTorpedos;
     
+    /**
+     *
+     * @param fullname
+     * @param reference
+     * @param lasers
+     * @param photon
+     */
     public Starship(String fullname, String reference, int lasers, int photon) {
         super(fullname, reference, 0, 0);
         this.setActivationFee(30*lasers);

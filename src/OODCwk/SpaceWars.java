@@ -388,7 +388,7 @@ public class SpaceWars  implements SWAT
         }
         
     }
-    
+
     /** reads all information about the game from the specified file 
      * and returns 
      * @param fname name of file storing the game

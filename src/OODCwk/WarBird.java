@@ -5,9 +5,20 @@
  */
 package OODCwk;
 
-
+/**
+ *
+ * @author Wayne
+ */
 public class WarBird extends ASF_Force {
     boolean cloakingDevice;
+
+    /**
+     *
+     * @param fullname
+     * @param reference
+     * @param battleStrength
+     * @param cloakingDev
+     */
     public WarBird(String fullname, String reference, int battleStrength, boolean cloakingDev) {
         super(fullname, reference, 0, battleStrength);
         

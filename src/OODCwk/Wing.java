@@ -5,10 +5,19 @@
  */
 package OODCwk;
 
-
+/**
+ *
+ * @author Wayne
+ */
 public class Wing extends ASF_Force {
     private int strikers;
     
+    /**
+     *
+     * @param fullname
+     * @param reference
+     * @param no_strikers
+     */
     public Wing(String fullname, String reference, int no_strikers) {
         super(fullname, reference, 200, no_strikers*20);
         
