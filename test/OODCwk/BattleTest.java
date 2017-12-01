@@ -212,7 +212,11 @@ public class BattleTest {
         game.activateForce("SS2");
         game.activateForce("WB3");
         game.fight(4);
+        System.out.println("get fight: " + Fight.getFight(4) );
         game.fight(5);    
+        System.out.println("Game: " + game.toString());
+        System.out.println("The actual result " + game.isDefeated());
+        System.out.println("Get all forces " + game.getASFleet());
         assertFalse(game.isDefeated());
     }
     

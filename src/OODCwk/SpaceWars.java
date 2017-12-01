@@ -65,19 +65,20 @@ public class SpaceWars  implements SWAT
     public boolean isDefeated()
     {
         boolean result = false;
-        
-        boolean activeForces = false;
-        
+                
         ArrayList<ASF_Force> getallForces = ASF_Force.getallActive();
-        if(!getallForces.isEmpty()) {
-            for(ASF_Force force: getallForces) {
-                    activeForces = true;
-            }
+        
+        // (getallForces.isEmpty()) if there are no active forces then it will return true
+        // !(getallForces.isEmpty()) if there a
+        
+        if(warchest <=0 && getallForces.isEmpty()) {
+                    result = true;
+                    this.isDefeated = result;
         }
         
-        if(warchest <=0 && !activeForces) {
-            result = true;
-        }
+//        if(warchest <=0 && !activeForces) {
+//            result = true;
+//        }
         return result;
     }
     
@@ -97,10 +98,12 @@ public class SpaceWars  implements SWAT
     public String getASFleet()
     {   
         String result = "";
-        if(!ASF_Force.getAllForces().isEmpty())
+        if(!ASF_Force.getAllForces().isEmpty()) {
             for(ASF_Force force: ASF_Force.getAllForces().values()) {
-                result = result + force.toString();
+                if(force.getStatus() != ForceState.ACTIVE)
+                    result = result + force.toString();
             }
+        }
         return result;
     }
     
@@ -109,20 +112,16 @@ public class SpaceWars  implements SWAT
      **/
     public String findForceInASF(String ref)
     {
-        String result = "";
+        String result = "No";
         ASF_Force force = ASF_Force.getForce(ref);
 
         if(force != null) {
             
-            if(force.getStatus() == ForceState.ACTIVE){
+            if(force.getStatus() == ForceState.DOCKED){
                  result = force.toString();
-            } else {
-                result = "This unit is not part of the ASF fleet.";
-            }
+            } 
         }
-         else {
-            result = "Invalid reference or force does not exist.";
-        }
+       
         
         return result;
     }
@@ -139,7 +138,7 @@ public class SpaceWars  implements SWAT
         if(force != null) {
             result = force.toString();
         } else {
-            result = "Invalid reference or force does not exist.";
+            result = "No such force";
         }
         return result;
     }     
@@ -167,10 +166,13 @@ public class SpaceWars  implements SWAT
                     } else {
                         result = 2;
                     }
+                    break;
                 case ACTIVE:
                     result = 0;
+                    break;
                 default:
                     result = 1;
+                    break;
             }
         } else {
             result = 3;
@@ -348,12 +350,12 @@ public class SpaceWars  implements SWAT
     //*******************************************************************************
     private void setupForces()
     {
-        Wing IW1 = new Wing("Dragons", "IW1",10);
+        Wing IW1 = new Wing("Dragons","IW1",10);
         
         Starship SS2 = new Starship("Enterprise", "SS2", 10, 20);
         WarBird WB3 = new WarBird("Droop", "WB3", 100, false);
         
-        Wing IW4 = new Wing("Dragons", "IW4", 20);
+        Wing IW4 = new Wing("Wingers", "IW4", 20);
         
         
         WarBird WB5 = new WarBird("Hang", "WB5", 300, true);

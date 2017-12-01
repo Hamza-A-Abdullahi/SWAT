@@ -38,11 +38,8 @@ public class WarBird extends ASF_Force {
     public String getDetails() {
         String result;
         
-        if(cloakingDevice) {
-            result = "Cloaking Device: Enabled";
-        } else {
-            result = "Cloaking Device: Not Found";
-        }
+        result = "Cloaking Device: " + cloakingDevice;
+        
         return result;
     }
 

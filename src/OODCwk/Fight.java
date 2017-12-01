@@ -11,7 +11,8 @@ import java.util.HashMap;
 
 public class Fight {
 
-    private static int fightNo = 0;
+    private static int counter;
+    private int fightNo;
     private FightType fightType;
     private Enemy enemy;
     private FightResult fightResult = FightResult.NONE;
@@ -48,8 +49,8 @@ public class Fight {
         this.gains = gains;
         this.losses = losses;
         
-        fightNo = fightNo + 1;
-        allFights.put(fightNo, this);
+        this.fightNo = ++counter;
+        allFights.put(this.fightNo, this);
         
     }    
     
@@ -177,10 +178,11 @@ public class Fight {
      *
      */
     public void DestroyForce() {
-        if(!usedForces.isEmpty())
             for(ASF_Force force: usedForces){
+               
                 force.setStatus(ForceState.DESTROYED);
-        } 
+            }
+        
     }
 
     /**
@@ -213,13 +215,22 @@ public class Fight {
         
         return this.fightResult;
     }
+    
+    private String getUsedForcesbyRef() {
+        String result = "";
+        for(ASF_Force force: usedForces) {
+            result = result + force.getReference() + " ";
+        }
+        return result;
+    }
+    
     @Override
     public String toString() {
         String result = "";
         if(fightResult == FightResult.NONE) {
             result = "forceTotalStrength=" + forceTotalStrength + ", usedForces=" + usedForces;
         }
-        return "Fight{" + "fightNo=" + fightNo + "fightType=" + fightType + ", enemy=" + enemy + ", fightResult=" + fightResult + ", gains=" + gains + ", losses=" + losses + result + '}';
+        return "Fight{" + "fightNo=" + fightNo + ", fightType=" + fightType + ", enemy=" + enemy + ", fightResult=" + fightResult + ", gains=" + gains + ", losses=" + losses + result + "forfces used: " + getUsedForcesbyRef() +'}';
     }
     
     

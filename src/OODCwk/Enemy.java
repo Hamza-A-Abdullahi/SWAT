@@ -54,6 +54,11 @@ public class Enemy {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    @Override
+    public String toString() {
+        return "Enemy{" + "enemyName=" + enemyName + ", strength=" + strength + '}';
+    }
     
     
     

@@ -79,7 +79,7 @@ public class ForceGeneralTest {
     
     @Test
     public void checkDetailsOfXX3() {
-        String str = game.getForce("XX3");        
+        String str = game.getForce("XX3");   
         boolean result = containsText(str, new ArrayList<>(Arrays.asList(
                 "No such force")));
         assertTrue(result);
