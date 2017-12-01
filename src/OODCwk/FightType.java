@@ -6,6 +6,7 @@ import java.io.*;
  * @author A.Marczyk
  * @version 02/02/2013
  */
+////everything
 public enum FightType implements Serializable
 {
     SKIRMISH (" Skirmish"), AMBUSH(" Ambush"), BATTLE(" Battle") ;

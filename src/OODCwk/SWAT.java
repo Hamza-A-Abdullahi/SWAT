@@ -1,5 +1,6 @@
 package OODCwk;
 import java.io.*;
+//
 /**
  * This interface specifies the behaviour expected from the SWAT
  * system as required for 6COM1037 - Nov 2017
@@ -7,7 +8,7 @@ import java.io.*;
  * @author A.A.Marczyk 
  * @version 25/10/2017
  */
- 
+
 public interface SWAT extends Serializable 
 {
  //**************** SWAT **************************  

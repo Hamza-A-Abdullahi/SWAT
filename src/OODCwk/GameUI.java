@@ -6,6 +6,7 @@ import java.io.*;
  * @author A.A.Marczyk
  * @version 06/02/2013
  */
+////everything
 public class GameUI
 {
     private static BufferedReader myIn = new BufferedReader(new InputStreamReader(System.in));

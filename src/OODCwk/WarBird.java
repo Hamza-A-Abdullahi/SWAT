@@ -58,6 +58,7 @@ public class WarBird extends ASF_Force {
                 break;
             case SKIRMISH:
                 result = false;
+                break;
                 
         }
         

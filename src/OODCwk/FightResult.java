@@ -5,6 +5,7 @@ import java.io.*;
  * 
  * 
  */
+
 public enum FightResult implements Serializable
 {
 

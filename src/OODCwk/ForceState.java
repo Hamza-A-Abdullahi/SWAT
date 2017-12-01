@@ -6,6 +6,7 @@ import java.io.*;
  * @author A.Marczyk
  * @version 20/10/2017
  */
+//
 public enum ForceState implements Serializable
 {
     DOCKED(" In dock"), ACTIVE(" Active"), DESTROYED (" destroyed");
