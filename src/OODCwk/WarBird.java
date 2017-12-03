@@ -5,10 +5,7 @@
  */
 package OODCwk;
 
-/**
- *
- * @author 
- */
+
 public class WarBird extends ASF_Force {
     boolean cloakingDevice;
 
