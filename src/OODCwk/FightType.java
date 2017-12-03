@@ -9,7 +9,21 @@ import java.io.*;
 ////everything
 public enum FightType implements Serializable
 {
-    SKIRMISH (" Skirmish"), AMBUSH(" Ambush"), BATTLE(" Battle") ;
+
+    /**
+     *
+     */
+    SKIRMISH (" Skirmish"),
+
+    /**
+     *
+     */
+    AMBUSH(" Ambush"),
+
+    /**
+     *
+     */
+    BATTLE(" Battle") ;
     private String type;
     
     private FightType(String ty)

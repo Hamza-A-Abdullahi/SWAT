@@ -14,10 +14,10 @@ public class Wing extends ASF_Force {
     private int strikers;
     
     /**
-     *
-     * @param fullname
-     * @param reference
-     * @param no_strikers
+     * To create a Wing:
+     * @param fullname a name must be given (String)
+     * @param reference a unique reference (String)
+     * @param no_strikers the number of strikers the wing which will determine it's strength value (which will be strikers*20).
      */
     public Wing(String fullname, String reference, int no_strikers) {
         super(fullname, reference, 200, no_strikers*20);

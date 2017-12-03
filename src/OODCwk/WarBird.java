@@ -13,11 +13,11 @@ public class WarBird extends ASF_Force {
     boolean cloakingDevice;
 
     /**
-     *
-     * @param fullname
-     * @param reference
-     * @param battleStrength
-     * @param cloakingDev
+     * To create a WarBird:
+     * @param fullname a name must be given (String)
+     * @param reference a unique reference (String)
+     * @param battleStrength a strength value (int)
+     * @param cloakingDev whether the unit will have a cloaking device. If it does have cloaking device this should be set to true, otherwise false (boolean). 
      */
     public WarBird(String fullname, String reference, int battleStrength, boolean cloakingDev) {
         super(fullname, reference, 0, battleStrength);

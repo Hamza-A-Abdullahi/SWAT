@@ -52,7 +52,8 @@ public class SpaceWars  implements SWAT
     public String toString()
     {
         // Not properly done yet..
-        return "SpaceWars{" + "name=" + name + ", warchest=" + warchest + ", isDefeated=" + isDefeated + '}';
+        String fightingFleet = this.getFightingFleet();
+        return "SpaceWars{" + "name=" + name + ", warchest=" + warchest + ", isDefeated=" + isDefeated + '}' + "\n Fighting Fleet : " + fightingFleet;
     }
     
     
@@ -68,17 +69,15 @@ public class SpaceWars  implements SWAT
                 
         ArrayList<ASF_Force> getallForces = ASF_Force.getallActive();
         
-        // (getallForces.isEmpty()) if there are no active forces then it will return true
-        // !(getallForces.isEmpty()) if there a
+
         
         if(warchest <=0 && getallForces.isEmpty()) {
                     result = true;
                     this.isDefeated = result;
+                    System.out.println("The game has been lost.");
         }
         
-//        if(warchest <=0 && !activeForces) {
-//            result = true;
-//        }
+
         return result;
     }
     
@@ -170,7 +169,7 @@ public class SpaceWars  implements SWAT
                 case ACTIVE:
                     result = 0;
                     break;
-                default:
+                case DESTROYED:
                     result = 1;
                     break;
             }
@@ -193,7 +192,6 @@ public class SpaceWars  implements SWAT
         ASF_Force force = ASF_Force.getForce(ref);
 
         if(force != null) {
-            
             if(force.getStatus() == ForceState.ACTIVE) {
                 result = true;
             }
@@ -275,9 +273,7 @@ public class SpaceWars  implements SWAT
     {
         int result = 0;
         Fight fight = Fight.getFight(fightNo);
-
         if(fight != null) {
-            
             
             switch(fight.beginFight()) {
                 case WON:

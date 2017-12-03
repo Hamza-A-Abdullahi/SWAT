@@ -15,9 +15,9 @@ public class Enemy {
     private int strength;
 
     /**
-     *
-     * @param enemyName
-     * @param strength
+     * To create an Enemy:
+     * @param enemyName the Enemy must be given a name (String).
+     * @param strength the Enemy must be given a strength value (int).
      */
     public Enemy(String enemyName, int strength) {
         this.enemyName = enemyName;
@@ -25,35 +25,19 @@ public class Enemy {
     }
 
     /**
-     *
-     * @return
+     * This is a getter method which will retrieve the Enemy's given name.
+     * @return enemyName (String)
      */
     public String getEnemyName() {
         return enemyName;
     }
 
     /**
-     *
-     * @return
+     * This is a getter method which will retrieve the Enemy's strength.
+     * @return strength (int)
      */
     public int getStrength() {
         return strength;
-    }
-
-    /**
-     *
-     * @param enemyName
-     */
-    public void setEnemyName(String enemyName) {
-        this.enemyName = enemyName;
-    }
-
-    /**
-     *
-     * @param strength
-     */
-    public void setStrength(int strength) {
-        this.strength = strength;
     }
 
     @Override

@@ -9,7 +9,10 @@ package OODCwk;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ *
+ * @author Wayne
+ */
 public class Fight {
 
     private static int counter;
@@ -148,37 +151,33 @@ public class Fight {
         this.losses = losses;
     }
 
-    /**
-     *
-     * @param allFights
+     /**
+     * This method which is PRIVATE which will retrieve all suitable forces which can participate in a fight.
      */
-    public void setAllFights(HashMap<Integer, Fight> allFights) {
-        this.allFights = allFights;
-    }
-    
     private void findSuitableforce() {
         int enemyStrength = enemy.getStrength();
         int forceStrength = 0;
-
         
-        for(ASF_Force force: ASF_Force.getallActive()) {
-            if(force.gameRule(this)) {
-                forceStrength = forceStrength + force.getBattleStrength();
-                usedForces.add(force);
+            for(ASF_Force force: ASF_Force.getallActive()) {
+               
+                if(force.gameRule(this)) {
+                    forceStrength = forceStrength + force.getBattleStrength();
+                    usedForces.add(force);
+                }
+                if(forceStrength >= enemyStrength) {
+                    break;
+                } 
             }
-            
-            if(forceStrength >= enemyStrength) {
-                break;
-            }
-        }
         
         this.forceTotalStrength = forceStrength;
+        
     }
     
     /**
-     *
+     * This method which will set all forces used in fight to DESTROYED
      */
     public void DestroyForce() {
+        if(!usedForces.isEmpty())
             for(ASF_Force force: usedForces){
                
                 force.setStatus(ForceState.DESTROYED);
@@ -187,16 +186,17 @@ public class Fight {
     }
 
     /**
-     *
-     * @return
+     * This method will retrieve all ASF force units used in a fight. 
+     * @return An ArrayList of all ASF force units used in a fight will be returned.
+     * The beginFight() method must be executed before running this method or there will be an empty ArrayList returned.
      */
     public ArrayList<ASF_Force> getUsedForces() {
         return usedForces;
     }
     
     /**
-     *
-     * @return
+     * This is a getter method which will get the result of the fight.
+     * @return will return the result of a fight which can be: NONE, FORCE_LOST and STRENGTH_LOST (see FightResult.java).
      */
     public FightResult beginFight() {
         
@@ -216,22 +216,11 @@ public class Fight {
         
         return this.fightResult;
     }
-    
-    private String getUsedForcesbyRef() {
-        String result = "";
-        for(ASF_Force force: usedForces) {
-            result = result + force.getReference() + " ";
-        }
-        return result;
-    }
-    
+   
     @Override
     public String toString() {
         String result = "";
-        if(fightResult == FightResult.NONE) {
-            result = "forceTotalStrength=" + forceTotalStrength + ", usedForces=" + usedForces;
-        }
-        return "Fight{" + "fightNo=" + fightNo + ", fightType=" + fightType + ", enemy=" + enemy + ", fightResult=" + fightResult + ", gains=" + gains + ", losses=" + losses + result + "forfces used: " + getUsedForcesbyRef() +'}';
+        return "Fight{" + "fightNo=" + fightNo + ", fightType=" + fightType + ", enemy=" + enemy + ", fightResult=" + fightResult + ", gains=" + gains + ", losses=" + losses + result + ", forces total strength: " + forceTotalStrength + '}';
     }
     
     

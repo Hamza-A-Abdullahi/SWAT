@@ -15,11 +15,13 @@ public class Starship extends ASF_Force {
     int photonTorpedos;
     
     /**
-     *
-     * @param fullname
-     * @param reference
-     * @param lasers
-     * @param photon
+     * To create a Starship:
+     * @param fullname a name must be given (String)
+     * @param reference a unique reference (String)
+     * @param lasers the number of laser cannons the Starship will have (int)
+     * @param photon the number of photon torpedos the Starship will have (init)
+     * It currently costs 30 bitcoins per a laser cannon, and 5 bitcoins for a photon torpedo.
+     * The battle strength is calculated by: [5 * number of photon torpedos + 10 * laser cannons]
      */
     public Starship(String fullname, String reference, int lasers, int photon) {
         super(fullname, reference, 0, 0);
