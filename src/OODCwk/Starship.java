@@ -6,10 +6,7 @@
 package OODCwk;
 //
 
-/**
- *
- * @author Wayne
- */
+
 public class Starship extends ASF_Force {
     int laserCannons;
     int photonTorpedos;
