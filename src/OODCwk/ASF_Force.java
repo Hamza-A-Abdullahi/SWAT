@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author Wayne
+ * 
  */
 public abstract class ASF_Force {
     private String fullname;
