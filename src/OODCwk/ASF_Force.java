@@ -17,13 +17,6 @@ public abstract class ASF_Force {
     private int activationFee;
     private int battleStrength;
 
-    /** 
-     * 
-     *  allForces will store all ASF force units that are in the game.
-     *  The key is the ASF force unit's Reference given as a string which should uniquely identify each unit.
-     *  The value will store the actual object of the ASF Force unit.
-     */
-    private static HashMap<String, ASF_Force> allForces = new HashMap();
     
     /**
      * This is the parent class which is ABSTRACT. This means that an object of type ASF_Force cannot be instantiated. However all ASF Force units will have the following fields:
@@ -38,32 +31,6 @@ public abstract class ASF_Force {
         this.activationFee = activationFee;
         this.battleStrength = battleStrength;
         this.status = ForceState.DOCKED;
-        allForces.put(reference, this);
-    }
-    
-    /**
-     * This is a static getter method which will retrieve a ASF force unit.
-     * @param ref every force has a reference which is given as a string representation.
-     * @return
-     */
-    public static ASF_Force getForce(String ref)  {
-        ASF_Force result = allForces.get(ref);
-        
-        return result;
-    } 
-    
-    /**
-     * This is a static getter method which will retrieve all ASF force units which have the state ACTIVE.
-     * @return an ArrayList of all ACTIVE forces will be returned.
-     */
-    public static ArrayList<ASF_Force> getallActive() {
-        ArrayList<ASF_Force> resultForces = new ArrayList();
-            for(ASF_Force force: allForces.values()) {
-                if(force.getStatus() == ForceState.ACTIVE) {
-                    resultForces.add(force);
-                }
-        }
-        return resultForces;
     }
     
     /** This is a getter method to retrieve the full name of an ASF Force unit.
@@ -106,15 +73,6 @@ public abstract class ASF_Force {
     public int getBattleStrength() {
         return battleStrength;
     }
-
-    /** This is a getter method to retrieve the data structure used to store all ASF forces.
-     *  The data structure used is a HashMap where the key is Reference (string) and the actual ASF unit object (ASF_Force)
-     * @return HashMap<String, ASF_Force> of all units.
-     */
-    public static HashMap<String, ASF_Force> getAllForces() {
-        return allForces;
-    }
-
 
     /** This is a setter method to change the state of a ASF force unit.
      *  

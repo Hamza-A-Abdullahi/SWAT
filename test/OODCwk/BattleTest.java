@@ -17,24 +17,25 @@ import static org.junit.Assert.*;
  * @author jp14adn
  */
 public class BattleTest {
+
     SWAT game;
-    
+
     public BattleTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         game = new SpaceWars("Jean");
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -50,7 +51,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void wingFacingSkirmishLoseOnStrength() {
         int expected = 600;
@@ -59,7 +60,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void wingFacingAmbushWins() {
         int expected = 950;
@@ -68,7 +69,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void wingFacingAmbushLoseOnSkill() {
         int expected = 400;
@@ -77,7 +78,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void wingFacingBattleNotAllowed() {
         int expected = 500;
@@ -86,7 +87,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void starshipFacingSkirmishWins() {
         int expected = 650;
@@ -95,7 +96,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void starshipFacingSkirmishLoseOnStrength() {
         int expected = 500;
@@ -104,7 +105,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void starshipFacingAmbushNotAllowed() {
         int expected = 300;
@@ -113,7 +114,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void starshipFacingBattleWins() {
         int expected = 650;
@@ -122,7 +123,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void starshipFacingBattleLoseOnStrength() {
         int expected = 580;
@@ -131,7 +132,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void warbirdFacingSkirmishNotAllowed() {
         int expected = 600;
@@ -140,7 +141,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void warbirdNoCloakingFacingAmbushNotAllowed() {
         int expected = 300;
@@ -149,7 +150,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void warbirdWithCloakingFacingAmbushWins() {
         int expected = 750;
@@ -158,7 +159,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void warbirdWithCloakingFacingAmbushLoseOnStrength() {
         int expected = 200;
@@ -167,7 +168,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void warbirdFacingBattleWinsOnStrength() {
         int expected = 700;
@@ -176,7 +177,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void warbirdFacingBattleLoseOnStrength() {
         int expected = 100;
@@ -185,7 +186,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void recallingDestroyedForceInFightDoesntAffectWarchest() {
         int expected = 600;
@@ -195,7 +196,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void recallingDestroyedInFightForceDoesntAffectWarchestOnReactivation() {
         int expected = 600;
@@ -205,7 +206,7 @@ public class BattleTest {
         int actual = game.getWarchest();
         assertEquals(expected, actual);
     }
-    
+
     @Test
     public void checkNotDefeatedWhileStillActiveForces() {
         game.activateForce("IW1");
@@ -215,7 +216,7 @@ public class BattleTest {
         game.fight(5);
         assertFalse(game.isDefeated());
     }
-    
+
     @Test
     public void checkDefeatedWhenGoingBust() {
         game.activateForce("IW1");

@@ -46,8 +46,6 @@ public class WarBird extends ASF_Force {
             case AMBUSH:
                 if(cloakingDevice) {
                     result = true;
-                } else {
-                    result = false;
                 }
             break;
             case BATTLE:
